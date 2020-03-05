@@ -11,6 +11,7 @@ import Edit from "../../components/Edit";
 import { FaUser, FaUserPlus, FaTrashAlt, FaPencilAlt } from "react-icons/fa";
 import { FiLogIn } from "react-icons/fi";
 
+// Styles
 import { Container } from "./styles";
 
 const Home = () => {
@@ -74,7 +75,7 @@ const Home = () => {
   const prevPage = () => {
     const { page, prevPage } = pagination;
 
-    if (prevPage == true) {
+    if (prevPage === true) {
       getUsers(page - 1);
     } else {
       return;
@@ -84,7 +85,7 @@ const Home = () => {
   const nextPage = () => {
     const { page, nextPage } = pagination;
 
-    if (nextPage == true) {
+    if (nextPage === true) {
       getUsers(page + 1);
     } else {
       return;
@@ -139,15 +140,18 @@ const Home = () => {
             </tbody>
           </table>
           <div className="paginate">
-            <button disabled={pagination.prevPage == false} onClick={prevPage}>
+            <button disabled={pagination.prevPage === false} onClick={prevPage}>
               Previous
             </button>
-            <button disabled={pagination.nextPage == false} onClick={nextPage}>
+            <button disabled={pagination.nextPage === false} onClick={nextPage}>
               Next
             </button>
           </div>
         </section>
       </Container>
+
+      {/* The logic for the modals ↓ */}
+
       {modal && add ? (
         <Modal>
           <Add closeModal={closeModal} />

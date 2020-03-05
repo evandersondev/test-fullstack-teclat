@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { createUser } from "../../utils/createUser";
 
+// Icons
 import { Container } from "./styles";
 import { FaTimes } from "react-icons/fa";
 
@@ -11,7 +12,8 @@ const Add = ({ closeModal }) => {
   const [passwordConfirm, setPasswordConfirm] = useState("");
   const [changePassword, setChangePassword] = useState(false);
 
-  const handleSubmit = () => {
+  const handleSubmit = e => {
+    e.preventDefault();
     createUser(name, email, password, passwordConfirm);
   };
 

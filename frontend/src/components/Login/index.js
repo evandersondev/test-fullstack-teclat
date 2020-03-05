@@ -11,13 +11,22 @@ const FormLogin = ({ makeSignup }) => {
 
   const LoginSession = async e => {
     e.preventDefault();
-    const {
-      data: { user, token }
-    } = await api.post("/sessions", { email, password });
 
-    await localStorage.setItem("user", JSON.stringify(user));
-    await localStorage.setItem("token", token);
-    history.push("home");
+    if (email && password === "") return alert("Please fill in the fields.");
+
+    try {
+      const {
+        data: { user, token }
+      } = await api.post("/sessions", { email, password });
+
+      localStorage.setItem("user", JSON.stringify(user));
+      localStorage.setItem("token", token);
+      history.push("home");
+    } catch (error) {
+      return alert(
+        "Maybe something information is incorrect, please check the email and password if they are correct."
+      );
+    }
   };
 
   return (

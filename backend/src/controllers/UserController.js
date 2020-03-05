@@ -25,6 +25,11 @@ export default {
   },
 
   async store(req, res) {
+    const { email } = req.body;
+
+    if (await User.findOne({ email }))
+      return res.status(401).json({ error: "User already exists" });
+
     const user = await User.create({ ...req.body });
 
     return res.json({ user });
@@ -37,14 +42,19 @@ export default {
       return res.status(400).json({ error: "User not exists" });
     }
 
-    req.body.password = await bcrypt.hash(req.body.password, 8);
+    try {
+      req.body.password = await bcrypt.hash(req.body.password, 8);
 
-    const user = await User.findByIdAndUpdate(id, req.body, {
-      new: true
-    });
+      const user = await User.findByIdAndUpdate(id, req.body, {
+        new: true
+      });
 
-    return res.json({ user });
+      return res.json({ user });
+    } catch (error) {
+      return res.status(400).json({ error: "Update error" });
+    }
   },
+
   async destroy(req, res) {
     await User.findByIdAndDelete(req.params.id);
 

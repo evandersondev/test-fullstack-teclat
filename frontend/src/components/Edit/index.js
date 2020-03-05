@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import api from "../../services/api";
 
+// Icons
 import { Container } from "./styles";
 import { FaTimes } from "react-icons/fa";
 
@@ -10,27 +11,31 @@ const FormEdit = ({ closeModal, userEdit }) => {
     email: userEdit.email,
     password: userEdit.password
   });
-
   const [wishChangePassword, setWishChangePassword] = useState(false);
+
   const token = localStorage.getItem("token");
 
   const updateUser = async e => {
     e.preventDefault();
-
     const { _id } = userEdit;
 
-    await api.put(
-      `/users/${_id}`,
-      {
-        ...myUser
-      },
-      {
-        headers: {
-          authorization: "Bearer " + token
+    try {
+      await api.put(
+        `/users/${_id}`,
+        {
+          ...myUser
+        },
+        {
+          headers: {
+            authorization: "Bearer " + token
+          }
         }
-      }
-    );
-    console.log(myUser);
+      );
+
+      window.location.reload();
+    } catch (err) {
+      alert("Update user error!");
+    }
   };
 
   return (

@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 
+// Components
 import Login from "../../components/Login";
 import Signup from "../../components/Signup";
 
+//Styles
 import { Container } from "./styles";
 
 const LoginLogout = () => {
