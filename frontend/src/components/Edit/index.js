@@ -13,24 +13,14 @@ const FormEdit = ({ closeModal, userEdit }) => {
   });
   const [wishChangePassword, setWishChangePassword] = useState(false);
 
-  const token = localStorage.getItem("token");
-
   const updateUser = async e => {
     e.preventDefault();
     const { _id } = userEdit;
 
     try {
-      await api.put(
-        `/users/${_id}`,
-        {
-          ...myUser
-        },
-        {
-          headers: {
-            authorization: "Bearer " + token
-          }
-        }
-      );
+      await api.put(`/users/${_id}`, {
+        ...myUser
+      });
 
       window.location.reload();
     } catch (err) {
@@ -58,7 +48,7 @@ const FormEdit = ({ closeModal, userEdit }) => {
           onChange={e => setMyUser({ ...myUser, email: e.target.value })}
         />
 
-        {wishChangePassword ? (
+        {wishChangePassword && (
           <input
             type="password"
             onChange={e => {
@@ -66,8 +56,6 @@ const FormEdit = ({ closeModal, userEdit }) => {
             }}
             placeholder="Password"
           />
-        ) : (
-          ""
         )}
 
         <button>Update</button>

@@ -21,22 +21,13 @@ const Home = () => {
   const [modal, setModal] = useState(false);
   const [edit, setEdit] = useState(false);
   const [add, setAdd] = useState(false);
-  const token = localStorage.getItem("token");
 
   const user = JSON.parse(localStorage.getItem("user"));
 
   const getUsers = async (page = 1) => {
     const {
       data: { users }
-    } = await api.get("/users", {
-      params: {
-        page
-      },
-
-      headers: {
-        authorization: "Bearer " + token
-      }
-    });
+    } = await api.get("/users", { params: { page } });
 
     setUsers(users.docs);
     setPagination({
@@ -130,7 +121,7 @@ const Home = () => {
                       <button>
                         <FaPencilAlt onClick={() => editUser(user)} />
                       </button>
-                      <button onClick={() => deleteUser(user._id, token)}>
+                      <button onClick={() => deleteUser(user._id)}>
                         <FaTrashAlt />
                       </button>
                     </div>
@@ -152,20 +143,16 @@ const Home = () => {
 
       {/* The logic for the modals ↓ */}
 
-      {modal && add ? (
+      {modal && add && (
         <Modal>
           <Add closeModal={closeModal} />
         </Modal>
-      ) : (
-        ""
       )}
 
-      {modal && edit ? (
+      {modal && edit && (
         <Modal>
           <Edit userEdit={userEdit} closeModal={closeModal} />
         </Modal>
-      ) : (
-        ""
       )}
     </>
   );

@@ -11,6 +11,8 @@ export const createUser = async (name, email, password, passwordConfirm) => {
       email,
       password: validatedPassword
     });
+    alert("User created");
+    window.location.reload();
   } catch (err) {
     alert(
       "Sorry, but something information is incorrect, remember that email must are unique for each user and the password must are equal for the two fields, please try again."

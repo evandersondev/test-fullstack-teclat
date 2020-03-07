@@ -39,15 +39,13 @@ const FormLogin = ({ makeLogin }) => {
             setChangePassword(true);
           }}
         />
-        {changePassword ? (
+        {changePassword && (
           <input
             type="password"
             placeholder="Comfirm password"
             value={passwordConfirm}
             onChange={e => setPasswordConfirm(e.target.value)}
           />
-        ) : (
-          ""
         )}
         <button>Log in</button>
         <span>

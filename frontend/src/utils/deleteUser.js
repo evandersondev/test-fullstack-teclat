@@ -1,8 +1,6 @@
 import api from "../services/api";
 
-export const deleteUser = async (id, token) => {
-  await api.delete(`/users/${id}`, {
-    headers: { authorization: "Bearer " + token }
-  });
+export const deleteUser = async id => {
+  await api.delete(`/users/${id}`);
   window.location.reload();
 };

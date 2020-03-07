@@ -45,15 +45,13 @@ const Add = ({ closeModal }) => {
             setChangePassword(true);
           }}
         />
-        {changePassword ? (
+        {changePassword && (
           <input
             type="password"
             placeholder="Comfirm password"
             value={passwordConfirm}
             onChange={e => setPasswordConfirm(e.target.value)}
           />
-        ) : (
-          ""
         )}
         <button>Add user</button>
       </form>
