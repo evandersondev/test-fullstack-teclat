@@ -17,7 +17,9 @@
 
 ### - STEPS TO CREATION DATABASE
 
-- You will need to have installed the [mongoDB](https://docs.mongodb.com/guides/server/install/) click this link and install case you don't have.
+<a href="https://docs.mongodb.com/guides/server/install/" target="_blank">mongoDB</a>
+
+- You will need to have installed the <a href="https://docs.mongodb.com/guides/server/install/" target="_blank">mongoDB</a> click this link and install case you don't have.
 
 - Open the terminal and run these codes.
 
@@ -57,7 +59,7 @@
 
 > `yarn` or `npm install` **for install the modules**.
 
-> You will need to have the app [Expo](https://play.google.com/store/apps/details?id=host.exp.exponent&hl=pt_BR) in your phone.
+> You will need to have the app <a href="https://play.google.com/store/apps/details?id=host.exp.exponent&hl=pt_BR" target="_blank">Expo</a> in your phone.
 
 > `yarn start` or `npm run start` **After that will open in your browser one QRCODE, capture and will run in your phone**.
 
@@ -65,10 +67,10 @@
 
 ### - FEATURES
 
-- ⚛️ [**React Js**](https://pt-br.reactjs.org/docs/getting-started.html) — A JavaScript library for building user interfaces
-- ⚛️ [**React Native**](https://reactnative.dev/docs/getting-started) — A lib that provides a way to create native apps for Android and iOS
-- 💹 [**Node Js**](https://nodejs.org/en/) — A web framework for Node Js
+- ⚛️ **<a href="https://pt-br.reactjs.org/docs/getting-started.html" target="_blank">React Js</a>** — A JavaScript library for building user interfaces
+- ⚛️ **<a href="https://reactnative.dev/docs/getting-started" target="_blank">React Native</a>** — A lib that provides a way to create native apps for Android and iOS
+- 💹 **<a href="https://nodejs.org/en/" target="_blank">Node Js</a>** — A web framework for Node Js
 
 ### - LICENSE
 
-This project is licensed under the MIT License - see the [LICENSE](https://opensource.org/licenses/MIT) page for details.
+This project is licensed under the MIT License - see the <a href="https://opensource.org/licenses/MIT" target="_blank">LICENSE</a> page for details.
