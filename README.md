@@ -39,6 +39,8 @@
 
 > `yarn` or `npm install` **for install the modules**.
 
+> You will need to create one file `.env` and create one code inside him `APP_SECRET:ONE_SECRET_WORD`
+
 > `yarn dev` or `npm run dev`.
 
 - In your terminal with the folder frontend opened, run the steps:
