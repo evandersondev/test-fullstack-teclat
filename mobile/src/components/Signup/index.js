@@ -51,7 +51,7 @@ const Signup = ({ makeLogin }) => {
           }}
           secureTextEntry={true}
         />
-        {changePassword ? (
+        {changePassword && (
           <TextInput
             style={styles.input}
             placeholder="Comfirm password"
@@ -59,8 +59,6 @@ const Signup = ({ makeLogin }) => {
             onChangeText={setPasswordConfirm}
             secureTextEntry={true}
           />
-        ) : (
-          <Text></Text>
         )}
         <TouchableOpacity style={styles.btnSubmit} onPress={handleSubmit}>
           <Text style={styles.textSubmit}>Create new user</Text>

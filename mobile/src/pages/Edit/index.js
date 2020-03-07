@@ -8,7 +8,7 @@ import {
   TextInput,
   Image,
   KeyboardAvoidingView,
-  AsyncStorage
+  Alert
 } from "react-native";
 
 import { styles } from "./styles";
@@ -27,20 +27,13 @@ const Edit = ({ navigation }) => {
 
   const updateUser = async () => {
     try {
-      await api.put(
-        `/users/${id}`,
-        {
-          ...myUser
-        },
-        {
-          headers: {
-            authorization: "Bearer " + (await AsyncStorage.getItem("token"))
-          }
-        }
-      );
+      await api.put(`/users/${id}`, {
+        ...myUser
+      });
+      Alert.alert("User updated.");
       navigation.navigate("Home");
     } catch (err) {
-      alert("Update user error!");
+      Alert.alert("Update user error!");
     }
   };
 

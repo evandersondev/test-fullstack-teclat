@@ -39,10 +39,6 @@ const Home = ({ navigation }) => {
     } = await api.get("/users", {
       params: {
         page
-      },
-
-      headers: {
-        authorization: "Bearer " + (await AsyncStorage.getItem("token"))
       }
     });
 
@@ -74,7 +70,10 @@ const Home = ({ navigation }) => {
       <View style={styles.actions}>
         <TouchableOpacity
           onPress={() =>
-            navigation.navigate("Edit", { id: item._id, user: item })
+            navigation.navigate("Edit", {
+              id: item._id,
+              user: item
+            })
           }
           style={styles.btnEdit}
         >
@@ -82,7 +81,7 @@ const Home = ({ navigation }) => {
         </TouchableOpacity>
 
         <TouchableOpacity
-          onPress={() => getDeleteUser(item._id)}
+          onPress={() => deleteUser(item._id, getUsers)}
           style={styles.btnTrash}
         >
           <Image style={styles.trashImage} source={TrashIcon} />
@@ -109,13 +108,6 @@ const Home = ({ navigation }) => {
     } else {
       return;
     }
-  };
-
-  const getDeleteUser = async id => {
-    deleteUser(id, await AsyncStorage.getItem("token")).then(() => {
-      alert("User deleted.");
-      getUsers();
-    });
   };
 
   const addNewUser = () => {

@@ -1,7 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { AsyncStorage } from "react-native";
 import api from "../../services/api";
-import { View, Text, TextInput, TouchableOpacity } from "react-native";
+import {
+  View,
+  Text,
+  TextInput,
+  TouchableOpacity,
+  KeyboardAvoidingView
+} from "react-native";
 
 import { styles } from "./styles";
 
@@ -36,7 +42,7 @@ const Login = ({ navigation, makeSignup }) => {
   };
 
   return (
-    <View style={styles.container}>
+    <KeyboardAvoidingView behavior="padding" style={styles.container}>
       <Text style={styles.h1}>Welcome</Text>
       <View style={styles.form}>
         <TextInput
@@ -64,7 +70,7 @@ const Login = ({ navigation, makeSignup }) => {
           </TouchableOpacity>
         </View>
       </View>
-    </View>
+    </KeyboardAvoidingView>
   );
 };
 

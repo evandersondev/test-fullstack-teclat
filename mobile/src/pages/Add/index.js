@@ -62,7 +62,7 @@ const Add = ({ navigation }) => {
           }}
           secureTextEntry={true}
         />
-        {changePassword ? (
+        {changePassword && (
           <TextInput
             style={styles.input}
             placeholder="Comfirm password"
@@ -70,8 +70,6 @@ const Add = ({ navigation }) => {
             onChangeText={setPasswordConfirm}
             secureTextEntry={true}
           />
-        ) : (
-          <Text></Text>
         )}
         <TouchableOpacity style={styles.btnSubmit} onPress={handleSubmit}>
           <Text style={styles.textSubmit}>Add user</Text>
