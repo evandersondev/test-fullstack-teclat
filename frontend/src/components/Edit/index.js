@@ -70,7 +70,7 @@ const FormEdit = ({ closeModal, userEdit }) => {
           ""
         )}
 
-        <button>Update user</button>
+        <button>Update</button>
 
         <button
           onClick={e => {

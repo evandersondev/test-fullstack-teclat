@@ -1,5 +1,10 @@
-<h1>
+<h1 align="center">
   CRUD OF THE USERS FOR TECLA T
+
+  <br>
+  <br>
+
+  <img width="100%" style="border-radius:7px" src="frontend/public/screen.png" />  
 </h1>
 
 ### - STEPS TO CREATION DATABASE
